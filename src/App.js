@@ -34,15 +34,19 @@ const App = () => {
     getUser(user);
   }, []);
 
-  const handleInput = ({ target }) => {
-    setUser(target.value);
+  useEffect(() => {
     if (user.length > 0 && fetchUsers !== null) {
       const filteredName = fetchUsers.filter((name) =>
         name.toLowerCase().includes(user.toLowerCase()) ? name : null
       );
-
       setSuggestions(filteredName);
+    } else if (user === "" && user.length === 0) {
+      setSuggestions("");
     }
+  }, [user]);
+
+  const handleInput = ({ target }) => {
+    setUser(target.value);
   };
 
   return (
