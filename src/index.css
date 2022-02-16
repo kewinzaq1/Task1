@@ -1,49 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap");
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: inherit;
-    background: transparent;
-    border: none;
-    outline: none;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
 }
-
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #E8EBF7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: #e8ebf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
 }
 
-.suggestions {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.76);
-    border-radius: .25rem;
+.App {
+  padding: 10rem;
 }
 
-input {
-    border: 1px solid rgba(17, 17, 17, 0.55);
-    border-radius: .25rem;
-
+.App header {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-input, button {
-    padding: 1rem;
+.App .suggestions {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.76);
+  border-radius: 0.25rem;
 }
 
-button {
-    cursor: pointer;
-    transition: all 250ms ease;
-    border: 1px solid rgba(17, 16, 16, .55);
-    border-top: none;
+.App input {
+  border: 1px solid rgba(17, 17, 17, 0.55);
+  border-radius: 0.25rem;
 }
 
-button:hover, button:focus {
-    background: #111111;
-    color: #fff;
+.App input,
+.App button {
+  padding: 1rem;
+}
+
+.App button {
+  cursor: pointer;
+  transition: all 250ms ease;
+  border: 1px solid rgba(17, 16, 16, 0.55);
+  border-top: none;
+  text-align: left;
+}
+
+.App button:hover,
+.App button:focus {
+  background: #111111;
+  color: #fff;
 }
