@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// https://jsonplaceholder.typicode.com/users
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -11,8 +10,6 @@ const App = () => {
   const suggestions = useSelector((state) => state.suggestions);
 
   const dispatch = useDispatch();
-
-  // console.log(fetchUsers, user, suggestions);
 
   const { setUser, setFetchUsers, setSuggestions } = bindActionCreators(
     actions,
