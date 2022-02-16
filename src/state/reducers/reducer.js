@@ -1,4 +1,8 @@
-import { SET_SUGGESTIONS, SET_USER, SET_USERS } from "../actions/actionType";
+import {
+  SET_FETCHUSERS,
+  SET_SUGGESTIONS,
+  SET_USER,
+} from "../actions/actionType";
 
 const INITIAL_STATE = {
   user: "",
@@ -13,10 +17,10 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         user: action.user,
       };
-    case SET_USERS:
+    case SET_FETCHUSERS:
       return {
         ...state,
-        users: action.users,
+        fetchUsers: action.fetchUsers,
       };
     case SET_SUGGESTIONS:
       return {

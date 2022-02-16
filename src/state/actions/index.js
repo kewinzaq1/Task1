@@ -1,4 +1,4 @@
-import { SET_SUGGESTIONS, SET_USER, SET_USERS } from "./actionType";
+import { SET_SUGGESTIONS, SET_USER, SET_FETCHUSERS } from "./actionType";
 
 export const setUser = (user) => {
   return (dispatch) => {
@@ -9,11 +9,11 @@ export const setUser = (user) => {
   };
 };
 
-export const setUsers = (users) => {
+export const setFetchUsers = (fetchUsers) => {
   return (dispatch) => {
     dispatch({
-      type: SET_USERS,
-      users: users,
+      type: SET_FETCHUSERS,
+      fetchUsers: fetchUsers,
     });
   };
 };

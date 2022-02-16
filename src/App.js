@@ -6,15 +6,15 @@ import { bindActionCreators } from "redux";
 import * as actions from "./state/actions/index";
 
 const App = () => {
-  const users = useSelector((state) => state.users);
+  const fetchUsers = useSelector((state) => state.fetchUsers);
   const user = useSelector((state) => state.user);
   const suggestions = useSelector((state) => state.suggestions);
 
   const dispatch = useDispatch();
 
-  console.log(users, user, suggestions);
+  // console.log(fetchUsers, user, suggestions);
 
-  const { setUser, setUsers, setSuggestions } = bindActionCreators(
+  const { setUser, setFetchUsers, setSuggestions } = bindActionCreators(
     actions,
     dispatch
   );
@@ -25,7 +25,7 @@ const App = () => {
       .then((result) => {
         const data = result.data;
         const names = data.map((data) => data.name);
-        setUsers(names);
+        setFetchUsers(names);
       })
       .catch((error) => {
         console.error(error.message);
@@ -39,8 +39,8 @@ const App = () => {
 
   const handleInput = ({ target }) => {
     setUser(target.value);
-    if (user.length > 0 && users !== null) {
-      const filteredName = users.filter((name) =>
+    if (user.length > 0 && fetchUsers !== null) {
+      const filteredName = fetchUsers.filter((name) =>
         name.toLowerCase().includes(user.toLowerCase()) ? name : null
       );
 
