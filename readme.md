@@ -1,4 +1,6 @@
-# Task #1
+# Task #2
+
+## live: https://amazing-curran-4c0b25.netlify.app/
 
 ## I performed the task using Redux and useEffect:
 
