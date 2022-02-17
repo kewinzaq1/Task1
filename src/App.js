@@ -35,18 +35,25 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (user.length > 0 && fetchUsers !== null) {
-      const filteredName = fetchUsers.filter((name) =>
-        name.toLowerCase().includes(user.toLowerCase()) ? name : null
-      );
-      setSuggestions(filteredName);
-    } else if (user === "" && user.length === 0) {
+    if (user === "" && user.length === 0) {
       setSuggestions("");
     }
   }, [user]);
 
   const handleInput = ({ target }) => {
     setUser(target.value);
+    if (user.length > 0 && fetchUsers !== null) {
+      const filteredName = fetchUsers.filter((name) =>
+        name.toLowerCase().includes(user.toLowerCase()) ? name : null
+      );
+      setSuggestions(filteredName);
+    }
+  };
+
+  const handleSuggestion = ({ target }) => {
+    setSuggestions("");
+    setUser(target.textContent);
+    console.log(target);
   };
 
   return (
@@ -65,12 +72,7 @@ const App = () => {
         <div className='suggestions'>
           {suggestions.map((suggestion, key) => {
             return (
-              <button
-                key={key}
-                onClick={({ target }) => {
-                  setSuggestions("");
-                  setUser(target.textContent);
-                }}>
+              <button key={key} onClick={handleSuggestion}>
                 {suggestion}
               </button>
             );

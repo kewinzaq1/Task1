@@ -43,12 +43,11 @@ body {
   width: 100%;
 }
 
-.App input,
-.App button {
+.App input {
   padding: 1rem;
 }
 
-.App button {
+.App .suggestion {
   cursor: pointer;
   transition: all 250ms ease;
   border: 1px solid rgba(17, 16, 16, 0.55);
@@ -56,8 +55,8 @@ body {
   text-align: left;
 }
 
-.App button:hover,
-.App button:focus {
+.App .suggestion:hover,
+.App .suggestion:focus {
   background: #111111;
   color: #fff;
 }
