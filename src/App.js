@@ -72,7 +72,10 @@ const App = () => {
         <div className='suggestions'>
           {suggestions.map((suggestion, key) => {
             return (
-              <button key={key} onClick={handleSuggestion}>
+              <button
+                key={key}
+                onClick={handleSuggestion}
+                className='suggestion'>
                 {suggestion}
               </button>
             );
