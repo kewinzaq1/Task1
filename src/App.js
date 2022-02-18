@@ -22,6 +22,7 @@ const App = () => {
       .then((result) => {
         const data = result.data;
         const names = data.map((data) => data.name);
+        console.log(names);
         setFetchUsers(names);
       })
       .catch((error) => {
@@ -31,7 +32,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    getUser(user); // Empty dependencies to fetch users once when rendering
+    getUser(user);
   }, []);
 
   useEffect(() => {
@@ -41,18 +42,17 @@ const App = () => {
       const filteredName = fetchUsers.filter((name) =>
         name === user
           ? null
-          : name.toLowerCase().substring(0, user.length) === user.toLowerCase() // Comparison of the inserted text to the mapped fetchUsers
+          : name.toLowerCase().substring(0, user.length) === user.toLowerCase()
           ? name.toLowerCase()
           : setSuggestions("")
       );
       setSuggestions(filteredName);
     }
-  }, [user]); //
+  }, [user]);
 
   const handleSuggestion = ({ target }) => {
     setSuggestions("");
     setUser(target.textContent);
-    console.log(suggestions);
   };
 
   return (

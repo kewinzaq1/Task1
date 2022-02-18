@@ -12,6 +12,12 @@
   outline: none;
 }
 
+:root {
+  --color-dark: #263238;
+  --color-light: #eceff1;
+  --color-medium: #ededed;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: #e8ebf7;
@@ -22,7 +28,7 @@ body {
 }
 
 .App {
-  padding: 10rem;
+  margin: 10rem;
 }
 
 .App header {
@@ -33,28 +39,37 @@ body {
 .App .suggestions {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.76);
   border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+.App input,
+.App button:not(:first-of-type) {
+  border: 1px solid var(--color-dark);
+  border-radius: 0.25rem;
+  width: 100%;
 }
 
 .App input,
 .App button {
-  border: 1px solid rgba(17, 17, 17, 0.55);
-  border-radius: 0.25rem;
-  width: 100%;
   padding: 1rem;
+}
+
+.App button:first-of-type {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
 
 .App .suggestion {
   cursor: pointer;
   transition: all 250ms ease;
-  border: 1px solid rgba(17, 16, 16, 0.55);
+  border: 1px solid var(--color-dark);
   border-top: none;
   text-align: left;
 }
 
 .App .suggestion:hover,
 .App .suggestion:focus {
-  background: #111111;
-  color: #fff;
+  background: var(--color-dark);
+  color: var(--color-light);
 }
