@@ -35,8 +35,6 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    setSuggestions("");
-
     if (user.length > 0 && fetchUsers !== null) {
       const filteredName = fetchUsers.filter((name) =>
         name === user
