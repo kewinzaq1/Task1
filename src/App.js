@@ -53,7 +53,6 @@ const App = () => {
   const handleSuggestion = ({ target }) => {
     setSuggestions("");
     setUser(target.textContent);
-    console.log(target);
   };
 
   return (
