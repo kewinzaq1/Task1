@@ -22,7 +22,6 @@ const App = () => {
       .then((result) => {
         const data = result.data;
         const names = data.map((data) => data.name);
-        console.log(names);
         setFetchUsers(names);
       })
       .catch((error) => {
