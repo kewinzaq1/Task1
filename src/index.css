@@ -42,11 +42,8 @@ body {
   border: 1px solid rgba(17, 17, 17, 0.55);
   border-radius: 0.25rem;
   width: 100%;
-}
-
-.App input,
-.App button {
   padding: 1rem;
+  text-transform: capitalize;
 }
 
 .App .suggestion {

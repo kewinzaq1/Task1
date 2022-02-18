@@ -16,8 +16,8 @@ const App = () => {
     dispatch
   );
 
-  const getUser = () => {
-    axios
+  const getUser = async () => {
+    await axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((result) => {
         const data = result.data;
@@ -38,21 +38,27 @@ const App = () => {
     if (user === "" && user.length === 0) {
       setSuggestions("");
     }
+
+    if (user.length > 0 && fetchUsers !== null) {
+      const filteredName = fetchUsers.filter((name) => {
+        if (name.toLowerCase().substring(0, user.length) === user) {
+          console.log(name.toLowerCase().substring(0, user.length));
+          console.log(user);
+          return name.toLowerCase();
+        }
+      });
+      setSuggestions(filteredName);
+    }
   }, [user]);
 
   const handleInput = ({ target }) => {
     setUser(target.value);
-    if (user.length > 0 && fetchUsers !== null) {
-      const filteredName = fetchUsers.filter((name) =>
-        name.toLowerCase().includes(user.toLowerCase()) ? name : null
-      );
-      setSuggestions(filteredName);
-    }
   };
 
   const handleSuggestion = ({ target }) => {
     setSuggestions("");
     setUser(target.textContent);
+    console.log(suggestions);
   };
 
   return (
@@ -75,7 +81,10 @@ const App = () => {
                 key={key}
                 onClick={handleSuggestion}
                 className='suggestion'>
-                {suggestion}
+                <p>
+                  <b>{suggestion.slice(0, user.length)}</b>
+                  {suggestion.slice(user.length)}
+                </p>
               </button>
             );
           })}
