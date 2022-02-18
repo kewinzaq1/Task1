@@ -43,7 +43,6 @@ body {
   border-radius: 0.25rem;
   width: 100%;
   padding: 1rem;
-  text-transform: capitalize;
 }
 
 .App .suggestion {

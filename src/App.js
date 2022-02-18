@@ -31,7 +31,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    getUser(user);
+    getUser(user); // Empty dependencies to fetch users once when rendering
   }, []);
 
   useEffect(() => {
@@ -40,16 +40,14 @@ const App = () => {
     }
 
     if (user.length > 0 && fetchUsers !== null) {
-      const filteredName = fetchUsers.filter((name) => {
-        if (name.toLowerCase().substring(0, user.length) === user) {
-          console.log(name.toLowerCase().substring(0, user.length));
-          console.log(user);
-          return name.toLowerCase();
-        }
-      });
+      const filteredName = fetchUsers.filter((name) =>
+        name.toLowerCase().substring(0, user.length) === user.toLowerCase() // Comparison of the inserted text to the mapped fetchUsers
+          ? name.toLowerCase()
+          : null
+      );
       setSuggestions(filteredName);
     }
-  }, [user]);
+  }, [user]); //
 
   const handleInput = ({ target }) => {
     setUser(target.value);
