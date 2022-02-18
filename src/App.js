@@ -35,23 +35,19 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (user === "" && user.length === 0) {
-      setSuggestions("");
-    }
+    setSuggestions("");
 
     if (user.length > 0 && fetchUsers !== null) {
       const filteredName = fetchUsers.filter((name) =>
-        name.toLowerCase().substring(0, user.length) === user.toLowerCase() // Comparison of the inserted text to the mapped fetchUsers
+        name === user
+          ? null
+          : name.toLowerCase().substring(0, user.length) === user.toLowerCase() // Comparison of the inserted text to the mapped fetchUsers
           ? name.toLowerCase()
-          : null
+          : setSuggestions("")
       );
       setSuggestions(filteredName);
     }
   }, [user]); //
-
-  const handleInput = ({ target }) => {
-    setUser(target.value);
-  };
 
   const handleSuggestion = ({ target }) => {
     setSuggestions("");
@@ -66,10 +62,11 @@ const App = () => {
         <p>auto-complete input field</p>
       </header>
       <input
+        className='input'
         type='text'
         value={user}
         placeholder={"Search user..."}
-        onChange={handleInput}
+        onChange={({ target }) => setUser(target.value)}
       />
       {suggestions && suggestions !== [] && (
         <div className='suggestions'>
